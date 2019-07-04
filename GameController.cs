@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    //Damage multiplier based on attack type and armour of enemy:
     //Weapon Armour table:
     public float[,] combatRules = new float[5, 5]
     //Armour: None , Low , Med , Hvy , Demon
