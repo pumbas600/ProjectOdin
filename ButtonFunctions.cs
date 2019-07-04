@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
+    public string hotkey = null;
     public int id;
     Button button;
 
@@ -13,7 +14,10 @@ public class ButtonFunctions : MonoBehaviour
 
     public void OnHoverEnter() {
         buttonController.OnHoverEntry(id);
-        button.image.color = buttonController.selectedColour;
+        if (button.interactable)
+        {
+            button.image.color = buttonController.selectedColour;
+        }
     }
     public void OnHoverExit() {
 
@@ -32,7 +36,7 @@ public class ButtonFunctions : MonoBehaviour
 
         buttonController = button.GetComponentInParent<ButtonController>();
 
-        //Creates the hovering components when added to button:
+        //Creates the hovering components when this script is added to button:
         gameObject.AddComponent<EventTrigger>();
         EventTrigger trigger = GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
@@ -47,6 +51,7 @@ public class ButtonFunctions : MonoBehaviour
     }
 
     void Update() {
-        
+
     }
 }
+
